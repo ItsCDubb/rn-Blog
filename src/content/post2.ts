@@ -5,7 +5,7 @@ const post: Post = {
   date: "2024-03-11T13:43:2817:43:00Z",
   title: "My Second Post",
   description: "This is my second post",
-  thumbnail: "",
+  thumbnail: "post2.png",
   content: `# Ignara disiecit
 
   ## Et aequora sed

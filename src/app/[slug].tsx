@@ -1,7 +1,7 @@
 import { getPost, getAllPosts } from "../repository/postRepository";
 import { Stack, useLocalSearchParams } from "expo-router";
 import Markdown from "react-native-markdown-display";
-import { ScrollView, Text } from "react-native";
+import { Image, ScrollView, Text } from "react-native";
 import Head from "expo-router/head";
 import { useState } from "react";
 
@@ -39,6 +39,10 @@ const PostDetailsPage = () => {
       >
         <Stack.Screen options={{ title: post.title }} />
         <Text style={{ fontSize: 30, marginBottom: 20 }}>{post.title}</Text>
+        <Image
+          source={{ uri: `/thumbnails/${post.thumbnail}` }}
+          style={{ width: "100%", aspectRatio: 16 / 9 }}
+        />
         <Markdown>{post.content}</Markdown>
       </ScrollView>
     </>
