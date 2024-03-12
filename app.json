@@ -27,6 +27,8 @@
       "bundler": "metro",
       "output": "static"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      ["expo-router", { "origin": "https://rn-blog-tawny.vercel.app/" }]
+    ]
   }
 }
