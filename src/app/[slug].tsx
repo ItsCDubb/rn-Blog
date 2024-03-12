@@ -1,8 +1,9 @@
 import { getPost, getAllPosts } from "../repository/postRepository";
 import { Stack, useLocalSearchParams } from "expo-router";
-import Markdown from "react-native-markdown-display";
 import { Image, ScrollView, Text } from "react-native";
+import Markdown from "react-native-markdown-display";
 import Head from "expo-router/head";
+import { ORIGIN } from "../config";
 import { useState } from "react";
 
 export async function generateStaticParams(): Promise<
@@ -24,6 +25,10 @@ const PostDetailsPage = () => {
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.description} />
+        <meta
+          property="og:image"
+          content={`${ORIGIN}/thumbnails/${post.thumbnail}`}
+        />
       </Head>
       <ScrollView
         style={{
@@ -40,7 +45,7 @@ const PostDetailsPage = () => {
         <Stack.Screen options={{ title: post.title }} />
         <Text style={{ fontSize: 30, marginBottom: 20 }}>{post.title}</Text>
         <Image
-          source={{ uri: `/thumbnails/${post.thumbnail}` }}
+          source={{ uri: `${ORIGIN}/thumbnails/${post.thumbnail}` }}
           style={{ width: "100%", aspectRatio: 16 / 9 }}
           alt={post.title}
         />
