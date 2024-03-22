@@ -5,6 +5,7 @@ import Markdown from "react-native-markdown-display";
 import Head from "expo-router/head";
 import { ORIGIN } from "../config";
 import { useState } from "react";
+import styles from "../../styles/blogStyle";
 
 export async function generateStaticParams(): Promise<
   Record<string, string>[]
@@ -49,6 +50,7 @@ const PostDetailsPage = () => {
           style={{ width: "100%", aspectRatio: 16 / 9 }}
           alt={post.title}
         />
+        <Text style={styles.date}>{post.date}</Text>
         <Markdown>{post.content}</Markdown>
       </ScrollView>
     </>
